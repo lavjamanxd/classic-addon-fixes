@@ -4,7 +4,7 @@
 
 ##### !! DISCLAIMER !!
 
-##### Those addons are not my original work, i'm just trying to keep them alive by fixing their source code, without adding anything new feature to them!
+##### Those addons are not my original work, i'm just trying to keep them alive by fixing their source code, without adding any new feature to them!
 
 ---
 
