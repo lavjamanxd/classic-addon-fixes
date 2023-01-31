@@ -1,0 +1,55 @@
+#####  Installation Instructions  #####
+1.Extract the TauntMaster folder in your ../World of Warcraft/Interface/Addons/ folder.
+
+
+
+
+#####  Description & Instructions  #####
+
+/tauntmaster - opens up the configuration menu
+/tm - opens up the configuration menu
+/tm show - shows tauntmaster
+/tm hide - hides tauntmaster
+/tm toggle - hides TM if show, shows TM if hidden
+/tm spells - opens up the spell bindings menu
+/tm display - opens up the display customization menu
+
+TauntMaster is a threat-management addon.  It automatically displays a button for every member of your party or raid.
+If the party/raid member begins to gain more threat than the tank, their button turns yellow.
+If they begin to insecurely tank, it turns orange.
+If they are securely tanking, it turns red.
+If another party member gains aggro, simply click their button and TauntMaster will automatically taunt their target off of them.
+Taunt Master is pre-programmed to cast the following taunts on whichever party or raid member you click:
+
+All Classes:
+	Ctrl-Alt Click:  Assist
+
+Death Knight:
+	Left Click:  Dark Command
+	Right Click:  Death Grip
+
+Druid:  
+	Left Click:  Growl
+	Rigth Click:  Challenging Roar
+
+Paladin:  
+	Left Click:  Hand of Reckoning
+	Right Click:  Righteous Defense
+	Ctrl Click:  Hand of Protection
+\
+
+Warrior:  
+	Left Click:  Taunt
+	Right Click:  Intervene
+	Shift Left-Click:  Challenging Shout
+	Ctrl Left-Click: Mocking Blow
+
+Open up the spell bindings menu to set your own spells to whichever mouse buttons you want.
+Click which mouse button you'd like to program and enter the exact name of the spell in the edit box.
+Then you MUST select a target
+	-if you want to cast the spell on a friend (like Righteous Defense or Intervene) then click friend ([@mouseover])
+	-if you want to cast the spell on an enemy (like taunt, death grip, etc.) click enemy ([@mouseovertarget])
+
+A blue border indicates the player is a tank.
+A green border indicates the player has a friendly target.
+If a player's mana drops below 10% "MANA!" will be displayed over their frame.

@@ -1,0 +1,15 @@
+## Interface: 30401
+## Title: Butsu
+## Author: Haste
+## Version: 2.1.2
+## X-eMail: troeks@gmail.com
+## Notes: Loot frame replacement
+## SavedVariables: ButsuDB
+
+locale.lua
+
+butsu.lua
+layout.lua
+slots.lua
+hooks.lua
+config.lua

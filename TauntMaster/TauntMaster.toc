@@ -1,0 +1,10 @@
+## Interface: 30401
+## Title: TauntMaster
+## Author: Prodigy&Raidark
+## SavedVariablesPerCharacter: TauntMasterDBChar
+## SavedVariables: TauntMasterDB
+## Version: 4.06
+## Notes: A frame that detects aggro and allows the user to easily taunt off party/raid members.
+
+TauntMaster.lua
+TauntMaster.xml

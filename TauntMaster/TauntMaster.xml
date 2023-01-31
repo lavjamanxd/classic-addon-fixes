@@ -1,0 +1,4726 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+  <Script file="TauntMaster.lua" />
+  <Button name="TauntMaster_ButtonTemplate" inherits="SecureActionButtonTemplate" virtual="true">
+    <Layers>
+      <Layer level="ARTWORK">
+        <FontString name="$parent_Name" setAllPoints="true" text="Need Update" inherits="GameFontHighlight"/>
+      </Layer>
+
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_TankTarget_Icon" file="Interface\AddOns\TauntMaster\tm_tanktarget_icon" setAllPoints="true">
+                <Size>
+                    <AbsDimension x="64" y="32"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT">
+                        <Offset>
+                            <AbsDimension x="2" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_Friendly_Icon" file="Interface\AddOns\TauntMaster\tm_friendly_icon8">
+                <Size>
+                    <AbsDimension x="64" y="32"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="RIGHT">
+                        <Offset>
+                            <AbsDimension x="0" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_Tank_Icon" file="Interface\AddOns\TauntMaster\tm_tank_icon3" setAllPoints="true">
+                <Size>
+                    <AbsDimension x="64" y="32"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="LEFT">
+                        <Offset>
+                            <AbsDimension x="2" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_OOM_Icon" file="Interface\AddOns\TauntMaster\mana_icon2">
+                <Size>
+                    <AbsDimension x="64" y="32"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="CENTER">
+                        <Offset>
+                            <AbsDimension x="0" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        
+       <Layer level="OVERLAY">
+            <Texture name="$parent_TM_Taunt_Icon" file="Interface\Icons\spell_nature_reincarnation">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_cShout_Icon" file="Interface\Icons\ability_bullrush">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                        <Offset x="50"/>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_mBlow_Icon" file="Interface\Icons\ability_warrior_punishingblow">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                        <Offset x="25"/>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_HoReckoning_Icon" file="Interface\Icons\spell_holy_unyieldingfaith">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_rDefense_Icon" file="Interface\Icons\inv_shoulder_37">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                        <Offset x="25"/>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_dCommand_Icon" file="Interface\Icons\spell_nature_shamanrage">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_dGrip_Icon" file="Interface\Icons\spell_deathknight_strangulate">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                        <Offset x="25"/>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_Growl_Icon" file="Interface\Icons\ability_physical_taunt">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+        <Layer level="OVERLAY">
+            <Texture name="$parent_TM_cRoar_Icon" file="Interface\Icons\ability_druid_challangingroar">
+                <Size>
+                    <AbsDimension x="25" y="25"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="TauntMaster_Header">
+                        <Offset x="25"/>
+                    </Anchor>
+                </Anchors>
+            </Texture>
+        </Layer>
+    </Layers>
+    <Frames>
+      <StatusBar name="$parent_HealthBar"  minValue="0" maxValue="100" defaultValue="100" setAllPoints="true">
+        <BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+        <BarColor r="1.0" g="1.0" b="1.0"/>
+        <Scripts>
+          <OnLoad>
+            self:SetFrameLevel(self:GetFrameLevel() - 1)
+          </OnLoad>
+        </Scripts>
+      </StatusBar>
+    </Frames>
+    <Scripts>
+      <OnLoad>
+        TauntMaster_Button_OnLoad(self)
+      </OnLoad>
+      <OnShow>
+        TauntMaster_Button_OnShow(self)
+      </OnShow>
+      <OnEvent>
+        TauntMaster_Button_OnEvent(self, event, ...)
+      </OnEvent>
+      <OnUpdate>
+        TauntMaster_Button_OnUpdate(self, elapsed)
+      </OnUpdate>
+      <OnDragStart>
+        TauntMaster_Button_OnDragStart(self, button)
+      </OnDragStart>
+      <OnDragStop>
+        TauntMaster_Button_OnDragStop(self, button)
+      </OnDragStop>
+      <OnHide>
+        TauntMaster_Button_OnDragStop(self, button)
+      </OnHide>
+    </Scripts>
+  </Button>
+  <Frame name="TauntMaster_Header" parent="UIParent" inherits="SecureGroupHeaderTemplate" movable="true" hidden="false">
+    <Anchors>
+      <Anchor point="CENTER"/>
+    </Anchors>
+    <Attributes>
+      <Attribute name="showParty" value="true"/>
+      <Attribute name="showRaid" value="true"/>
+      <Attribute name="showPlayer" value="true"/>
+      <Attribute name="columnAnchorPoint" value="LEFT"/>
+      <Attribute name="point" value="TOP"/>
+      <Attribute name="template" value="TauntMaster_ButtonTemplate"/>
+      <Attribute name="templatetype" value="Button"/>    
+    </Attributes>
+  </Frame>
+  <Frame name="TMConfig" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+	  <Size>
+	    <AbsDimension x="415" y="490" />
+	  </Size>
+	  <Anchors>
+	    <Anchor point="CENTER" />
+	  </Anchors>
+	  <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+	    <BackgroundInsets>
+		  <AbsInset left="11" right="12" top="12" bottom="11" />
+	    </BackgroundInsets>
+	    <TileSize>
+		  <AbsValue val="32" />
+	    </TileSize>
+	    <EdgeSize>
+		  <AbsValue val="32" />
+	    </EdgeSize>
+	  </Backdrop>
+	  <Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+      <Frames>
+	        <EditBox name="TauntMaster_EditBox_OOM" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="25" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="355" y="-230" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox_OOM_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMEditBox_OOM_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+	        <EditBox name="TauntMaster_EditBox_Alpha1" inherits="InputBoxTemplate" letters="3" numeric="true">
+				<Size>
+					<AbsDimension x="25" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="358" y="-310" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox_Alpha1_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMEditBox_Alpha1_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+	        <EditBox name="TauntMaster_EditBox_Alpha2" inherits="InputBoxTemplate" letters="3" numeric="true">
+				<Size>
+					<AbsDimension x="25" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="358" y="-340" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox_Alpha2_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMEditBox_Alpha2_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+	        <EditBox name="TauntMaster_EditBox_Alpha3" inherits="InputBoxTemplate" letters="3" numeric="true">
+				<Size>
+					<AbsDimension x="25" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="358" y="-370" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox_Alpha3_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMEditBox_Alpha3_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+	        <EditBox name="TauntMaster_EditBox_Alpha4" inherits="InputBoxTemplate" letters="3" numeric="true">
+				<Size>
+					<AbsDimension x="25" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="358" y="-400" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox_Alpha4_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMEditBox_Alpha4_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+	    <Slider name="Height" inherits="OptionsSliderTemplate" orientation="HORIZONTAL">
+	      <Size>
+	        <AbsDimension x="150" y="20" />
+	 	  </Size>
+	      <Anchors>
+	        <Anchor point="TOPLEFT">
+	          <Offset x="25" y="-50" />
+	  	    </Anchor>
+	      </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_Button_val1_OnLoad(self,Height,0,100,1)
+            </OnLoad>
+            <OnValueChanged>
+              TauntMaster_Button_val1_OnValueChanged(self)
+            </OnValueChanged>
+          </Scripts>
+        </Slider>
+        <Slider name="Width" inherits="OptionsSliderTemplate" orientation="HORIZONTAL">
+    	  <Size>
+      	    <AbsDimension x="150" y="20" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="25" y="-95" />
+	        </Anchor>
+	   	  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_Button_val2_OnLoad(self,Width,0,100,1)
+            </OnLoad>
+            <OnValueChanged>
+              TauntMaster_Button_val2_OnValueChanged(self)
+            </OnValueChanged>
+          </Scripts>
+	    </Slider>
+        <Slider name="maxColumns" inherits="OptionsSliderTemplate" orientation="HORIZONTAL">
+    	  <Size>
+      	    <AbsDimension x="150" y="20" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="25" y="-140" />
+	        </Anchor>
+	   	  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_Button_val4_OnLoad(self,maxColumns,1,40,1)
+            </OnLoad>
+            <OnValueChanged>
+              TauntMaster_Button_val3_OnValueChanged(self)
+            </OnValueChanged>
+          </Scripts>
+	    </Slider>
+        <Slider name="unitsPerColumn" inherits="OptionsSliderTemplate" orientation="HORIZONTAL">
+    	  <Size>
+      	    <AbsDimension x="150" y="20" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="25" y="-190" />
+	        </Anchor>
+	   	  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_Button_val5_OnLoad(self,unitsPerColumn,0,40,1)
+            </OnLoad>
+            <OnValueChanged>
+              TauntMaster_Button_val4_OnValueChanged(self)
+            </OnValueChanged>
+          </Scripts>
+	    </Slider>
+		<Button name="HideButton" inherits="UIPanelButtonTemplate" text="Hide">
+			<Size>
+				<AbsDimension x="50" y="25" />
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT">
+					<Offset x="15" y="-315" />
+				</Anchor>
+			</Anchors>
+            <Scripts>
+                <OnClick>
+                    TauntMaster_Header:Hide()
+                    TauntMasterDBChar.hideTM = true
+                </OnClick>
+            </Scripts>
+		</Button>
+        <Button name="ShowButton" inherits="UIPanelButtonTemplate" text="Show">
+			<Size>
+				<AbsDimension x="50" y="25" />
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT">
+					<Offset x="75" y="-315" />
+				</Anchor>
+			</Anchors>
+            <Scripts>
+                <OnClick>
+                    TauntMaster_Header:Show()
+                    TauntMasterDBChar.hideTM = nil
+                </OnClick>
+            </Scripts>
+		</Button>
+          <Button name="ResetFrame" inherits="UIPanelButtonTemplate" text="Center">
+	        <Size>
+              <AbsDimension x="50" y="25" />
+        	</Size>
+	        <Anchors>
+	          <Anchor point="TOPLEFT">
+		        <Offset x="135" y="-315" />
+	          </Anchor>
+	        </Anchors>
+            <Scripts>
+              <OnClick>
+                TauntMaster_Header:ClearAllPoints();
+                TauntMaster_Header:SetPoint("CENTER");
+              </OnClick>
+            </Scripts>
+        </Button>
+        <CheckButton name="LockTauntMaster" inherits="UICheckButtonTemplate" text="Lock TauntMaster in Place">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="350" y="-20" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+              LockTauntMaster_OnLoad(self)
+            </OnLoad>
+            <OnClick>
+              TauntMasterDB.checked = self:GetChecked()
+            </OnClick>
+          </Scripts>
+        </CheckButton>
+		 <CheckButton name="TMHideBG" inherits="UICheckButtonTemplate" text="Hide on BG">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="350" y="-50" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+             TauntMaster_HideBG_OnLoad(self)
+            </OnLoad>
+            <OnClick>
+              TauntMasterDB.HideBG = self:GetChecked()
+			  TauntMaster_Update()
+            </OnClick>
+          </Scripts>
+        </CheckButton>
+        <CheckButton name="TMShowSolo" inherits="UICheckButtonTemplate" text="Auto-Hide">
+            <Size>
+                <AbsDimension x="32" y="32" />
+            </Size>
+            <Anchors>
+                <Anchor point="TOPLEFT">
+                    <Offset x="350" y="-80" />
+                </Anchor>
+            </Anchors>
+            <Scripts>
+                <OnLoad>
+                    TauntMaster_Button_ShowSolo_OnLoad(self)
+                </OnLoad>
+                <OnClick>
+                    TauntMaster_Button_ShowSolo_OnClick(self)
+                </OnClick>
+                <PostClick>
+                    TauntMaster_Button_ShowSolo_PostClick(self)
+                </PostClick>
+            </Scripts>
+        </CheckButton>
+        <CheckButton name="TankBorder" inherits="UICheckButtonTemplate" text="Tank Border">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="350" y="-110" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_ShowTankBorder_OnLoad(self)
+            </OnLoad>
+            <OnClick>
+              TauntMasterDB.showTank = self:GetChecked()
+            </OnClick>
+          </Scripts>
+        </CheckButton>
+        <CheckButton name="FriendlyTargetBorder" inherits="UICheckButtonTemplate" text="Friendly Target Border">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="350" y="-140" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_ShowFriendlyBorder_OnLoad(self)
+            </OnLoad>
+            <OnClick>
+              TauntMasterDB.showFriendly = self:GetChecked()
+            </OnClick>
+          </Scripts>
+        </CheckButton>
+        <CheckButton name="TankTargetBorder" inherits="UICheckButtonTemplate" text="Tank Target Border">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="350" y="-170" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_ShowTankTargetBorder_OnLoad(self)
+            </OnLoad>
+            <PostClick>
+              TauntMasterDB.showTankTarget = self:GetChecked()
+            </PostClick>
+          </Scripts>
+        </CheckButton>
+        <CheckButton name="OOMWarning" inherits="UICheckButtonTemplate" text="OOM Warning">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="350" y="-200" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_ShowOOMBorder_OnLoad(self)
+            </OnLoad>
+            <OnClick>
+              TauntMasterDB.showOOM = self:GetChecked()
+            </OnClick>
+          </Scripts>
+        </CheckButton>
+        <CheckButton name="TauntIcons" inherits="UICheckButtonTemplate" text="Taunt Icons">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="140" y="-370" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_ShowTauntIcons_OnLoad(self)
+            </OnLoad>
+            <OnClick>
+              TauntMasterDB.showTaunts = self:GetChecked()
+            </OnClick>
+          </Scripts>
+        </CheckButton>
+        <CheckButton name="TauntIcons2" inherits="UICheckButtonTemplate" text="Taunt Icons2">
+	      <Size>
+			<AbsDimension x="32" y="32" />
+		  </Size>
+		  <Anchors>
+		    <Anchor point="TOPLEFT">
+			  <Offset x="140" y="-398" />
+		    </Anchor>
+		  </Anchors>
+          <Scripts>
+            <OnLoad>
+              TauntMaster_ShowTauntIcons2_OnLoad(self)
+            </OnLoad>
+            <PostClick>
+              TauntMasterDB.showTaunts2 = self:GetChecked()
+            </PostClick>
+          </Scripts>
+        </CheckButton>
+        <Button name="HideMM" inherits="UIPanelButtonTemplate" text="Hide">
+	      <Size>
+            <AbsDimension x="50" y="20" />
+	      </Size>
+	      <Anchors>
+	        <Anchor point="TOPLEFT">
+		      <Offset x="35" y="-255" />
+	        </Anchor>
+	      </Anchors>
+          <Scripts>
+            <OnClick>
+              MiniMap_MinimapButton:Hide()
+              TauntMasterDBChar.hideTMMM = true
+            </OnClick>
+          </Scripts>
+        </Button>
+        <Button name="ShowMM" inherits="UIPanelButtonTemplate" text="Show">
+	      <Size>
+            <AbsDimension x="50" y="20" />
+	      </Size>
+	      <Anchors>
+	        <Anchor point="TOPLEFT">
+		      <Offset x="105" y="-255" />
+	        </Anchor>
+	      </Anchors>
+          <Scripts>
+            <OnClick>
+              MiniMap_MinimapButton:Show()
+              TauntMasterDBChar.hideTMMM = nil
+            </OnClick>
+          </Scripts>
+        </Button>
+        <Button name="CloseButton" inherits="UIPanelButtonTemplate" text="Close Options">
+			<Size>
+				<AbsDimension x="126" y="25" />
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT">
+					<Offset x="140" y="-440" />
+				</Anchor>
+			</Anchors>
+            <Scripts>
+                <OnClick>
+                    TMConfig:Hide()
+                </OnClick>
+            </Scripts>
+		</Button>
+      </Frames>
+	  <Layers>
+	    <Layer level="OVERLAY">
+            <FontString name="OOMString2" inherits="GameFontNormalSmall" text="% To Show Mana Warning:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-230" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>        
+          <FontString name="AlphaString" inherits="GameFontNormal" text="Alpha (Dim) Level:">
+	        <Size>
+			  <AbsDimension x="140" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="220" y="-275" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>  
+          <FontString name="AlphaStringPT" inherits="GameFontNormalSmall" text="(Player / Target)">
+	        <Size>
+			  <AbsDimension x="140" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="220" y="-288" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>  
+          <FontString name="AlphaString1" inherits="GameFontNormalSmall" text="In Combat / In Range:             %">
+	        <Size>
+			  <AbsDimension x="175" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="225" y="-310"/>
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>   
+          <FontString name="AlphaString2" inherits="GameFontNormalSmall" text="In Combat / Out of Range:             %">
+	        <Size>
+			  <AbsDimension x="190" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="205" y="-340"/>
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>  
+         <FontString name="AlphaString3" inherits="GameFontNormalSmall" text="Out of Combat / In Range:             %">
+	        <Size>
+			  <AbsDimension x="190" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="205" y="-370"/>
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString> 
+          <FontString name="AlphaString4" inherits="GameFontNormalSmall" text="Out of Combat / Out of Range:              %">
+	        <Size>
+			  <AbsDimension x="220" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="179" y="-400"/>
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString> 
+		  <FontString name="FontString1" inherits="GameFontNormalLarge" text="Options">
+	        <Size>
+			  <AbsDimension x="100" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="160" y="-6" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="16" />
+		    </FontHeight>
+		  </FontString>
+		  <FontString name="FontString2" inherits="GameFontNormal" text="Button Height">
+	        <Size>
+			  <AbsDimension x="108" y="20" />
+		    </Size>
+		    <Anchors>
+			  <Anchor point="TOPLEFT">
+		        <Offset x="43" y="-35" />
+			  </Anchor>
+		    </Anchors>
+		  </FontString>
+          <FontString name="FontString3" inherits="GameFontNormal" text="Button Width">
+		    <Size>
+			  <AbsDimension x="108" y="20" />
+		    </Size>
+		    <Anchors>
+			  <Anchor point="TOPLEFT">
+			    <Offset x="43" y="-80" />
+			  </Anchor>
+		    </Anchors>
+    	    <FontHeight>
+			  <AbsValue val="12" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString4" inherits="GameFontNormal" text="Max # of Columns">
+	        <Size>
+			  <AbsDimension x="175" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="13" y="-120" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="12" />
+		    </FontHeight>
+		  </FontString>
+		  <FontString name="FontString5" inherits="GameFontNormal" text="Units Per Column">
+	        <Size>
+			  <AbsDimension x="120" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="43" y="-170" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="12" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString6" inherits="GameFontNormalSmall" text="1">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="43" y="-58" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="12" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString7" inherits="GameFontNormalSmall" text="1">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="43" y="-103" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="12" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString8" inherits="GameFontNormalSmall" text="4">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="43" y="-148" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="12" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString9" inherits="GameFontNormalSmall" text="10">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="43" y="-198" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="12" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString10" inherits="GameFontNormal" text="TauntMaster Frame:">
+	        <Size>
+			  <AbsDimension x="150" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="25" y="-290" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="TauntCDString" inherits="GameFontNormal" text="Taunt Cooldowns:">
+	        <Size>
+			  <AbsDimension x="150" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="25" y="-350" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+		  <FontString name="FontString11" inherits="GameFontNormalSmall" text="Lock In Place:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-20" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+		  <FontString name="FontString11" inherits="GameFontNormalSmall" text="Hide on BG:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-50" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString13" inherits="GameFontNormalSmall" text="Hide When Solo:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-80" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString14" inherits="GameFontNormalSmall" text="Hide Tank Border:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-110" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString15" inherits="GameFontNormalSmall" text="Hide Friendly Target Border:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-140" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString> 
+          <FontString name="TankTargetString" inherits="GameFontNormalSmall" text="Hide 'Target = Tank's Target' Border:">
+	        <Size>
+			  <AbsDimension x="120" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-170" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString> 
+          <FontString name="FontString16" inherits="GameFontNormalSmall" text="Hide Low Mana Warning:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="230" y="-200" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="FontString12" inherits="GameFontNormal" text="MiniMap Button:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="48" y="-230" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="TauntIconsString" inherits="GameFontNormalSmall" text="Show On Cooldown:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="25" y="-370" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+          <FontString name="TauntIconsString2" inherits="GameFontNormalSmall" text="Show When Ready:">
+	        <Size>
+			  <AbsDimension x="108" y="29" />
+            </Size>
+		    <Anchors>
+		      <Anchor point="TOPLEFT">
+	    	    <Offset x="25" y="-398" />
+		      </Anchor>
+		    </Anchors>
+		    <FontHeight>
+		      <AbsValue val="14" />
+		    </FontHeight>
+		  </FontString>
+	    </Layer>
+	  </Layers>
+      <Scripts>
+        <OnLoad>
+          self:RegisterForDrag("LeftButton");
+          self:Hide()
+        </OnLoad>
+        <OnDragStart>
+          TauntMaster_Options_OnDragStart(self, button)
+        </OnDragStart>
+        <OnDragStop>
+          TauntMaster_Options_OnDragStop(self, button)
+        </OnDragStop>
+      </Scripts>
+  </Frame>
+  <Button name="MiniMap_MinimapButton" parent="Minimap" enableMouse="true" movable="true" hidden="false">
+		<Size>
+			<AbsDimension x="33" y="33"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT"/>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="MiniMap_MinimapButton_Icon" file="Interface\AddOns\TauntMaster\tmicon">
+					<Size>
+						<AbsDimension x="21" y="21"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="7" y="-6"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture file="Interface\Minimap\MiniMap-TrackingBorder">
+					<Size>
+						<AbsDimension x="56" y="56"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="MiniMap_MinimapButton_DraggingFrame" hidden="true">
+				<Scripts>
+					<OnUpdate>
+						MiniMap_MinimapButton_DraggingFrame_OnUpdate()
+					</OnUpdate>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
+		<Scripts>
+			<OnLoad>
+                MiniMapButton_OnLoad()
+			</OnLoad>
+			<OnDragStart>
+				this:LockHighlight()
+				MiniMap_MinimapButton_DraggingFrame:Show()
+			</OnDragStart>
+			<OnDragStop>
+				this:UnlockHighlight()
+				MiniMap_MinimapButton_DraggingFrame:Hide()
+			</OnDragStop>
+			<OnClick>
+				MiniMapButton_OnClick(self, button, down)
+			</OnClick>
+		</Scripts>
+  </Button>
+  <Frame name="TauntMasterMouseButtons" parent="UIParent" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="168" y="251" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="16" y="-25" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="LeftClick" inherits="UIPanelButtonTemplate" text="Left Click">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="44" y="-41" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        LeftButtonFrame:Show()
+                        TauntMasterMouseButtons:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+			<Button name="RightClick" inherits="UIPanelButtonTemplate" text="Right Click">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="44" y="-71" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        RightButtonFrame:Show()
+                        TauntMasterMouseButtons:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+			<Button name="Button3" inherits="UIPanelButtonTemplate" text="Button3">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="44" y="-101" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        ButtonFrame3:Show()
+                        TauntMasterMouseButtons:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+			<Button name="Button4" inherits="UIPanelButtonTemplate" text="Button4">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="44" y="-131" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        ButtonFrame4:Show()
+                        TauntMasterMouseButtons:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+			<Button name="Button5" inherits="UIPanelButtonTemplate" text="Button5">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="44" y="-161" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        ButtonFrame5:Show()
+                        TauntMasterMouseButtons:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+			<Button name="CloseMouseButtons" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="44" y="-207" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TauntMasterMouseButtons:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="FontString1" inherits="GameFontNormalLarge" text="Mouse Buttons">
+					<Size>
+						<AbsDimension x="136" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="14" y="-15" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+        <Scripts>
+            <OnLoad>
+                self:Hide()
+            </OnLoad>
+        </Scripts>
+  </Frame>
+  <Frame name="LeftButtonFrame" parent="UIParent" movable="true" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="330" y="271" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="12" y="27" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+        <Frames>
+	        <EditBox name="TauntMaster_EditBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-66" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMEditBox_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_ShiftEditBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-105" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMShiftEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMShiftEditBox_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_CtrlEditBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-144" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMCtrlEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMCtrlEditBox_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_AltEditBox" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-183" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMAltEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMAltEditBox_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<Button name="BackButton1" inherits="UIPanelButtonTemplate" text="Back">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="80" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TauntMasterMouseButtons:Show()
+                        LeftButtonFrame:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="CloseButton1" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="160" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        LeftButtonFrame:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="DropDown_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-75" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        DropDown_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        DropDownFrame:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="DropDownFrame" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="DropDown_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="DropDown_Friend" parent="DropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.TARGET1 = DropDown_Button:GetText()
+                                DropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="DropDown_Enemy" parent="DropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.TARGET1 = DropDown_Button:GetText()
+                                DropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="ShiftDropDown_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-115" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        ShiftDropDown_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        ShiftDropDownFrame:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="ShiftDropDownFrame" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="ShiftDropDown_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="ShiftDropDown_Friend" parent="ShiftDropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.SHIFTTARGET1 = ShiftDropDown_Button:GetText()
+                                ShiftDropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="ShiftDropDown_Enemy" parent="ShiftDropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.SHIFTTARGET1 = ShiftDropDown_Button:GetText()
+                                ShiftDropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="CtrlDropDown_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-155" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        CtrlDropDown_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        CtrlDropDownFrame:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="CtrlDropDownFrame" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CtrlDropDown_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="CtrlDropDown_Friend" parent="CtrlDropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.CTRLTARGET1 = CtrlDropDown_Button:GetText()
+                                CtrlDropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="CtrlDropDown_Enemy" parent="CtrlDropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.CTRLTARGET1 = CtrlDropDown_Button:GetText()
+                                CtrlDropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="AltDropDown_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-195" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        AltDropDown_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        AltDropDownFrame:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="AltDropDownFrame" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="AltDropDown_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="AltDropDown_Friend" parent="AltDropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.ALTTARGET1 = AltDropDown_Button:GetText()
+                                AltDropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="AltDropDown_Enemy" parent="AltDropDownFrame" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.ALTTARGET1 = AltDropDown_Button:GetText()
+                                AltDropDownFrame:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+        </Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="LeftButton" inherits="GameFontNormalLarge" text="Left Button">
+					<Size>
+						<AbsDimension x="102" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="105" y="-16" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="SpellName" inherits="GameFontNormalMed3" text="| Spell Name |">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="71" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Modifier" inherits="GameFontNormalMed3" text="Modifier">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="4" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="None" inherits="GameFontNormal" text="None">
+					<Size>
+						<AbsDimension x="53" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="31" y="-73" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Shift" inherits="GameFontNormal" text="Shift">
+					<Size>
+						<AbsDimension x="50" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-110" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Ctrl" inherits="GameFontNormal" text="Ctrl">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="44" y="-151" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Alt" inherits="GameFontNormal" text="Alt">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="46" y="-189" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="CastAt" inherits="GameFontNormalMed3" text="Cast spell at...">
+					<Size>
+						<AbsDimension x="120" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="184" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>     
+        <Scripts>
+            <OnLoad>
+                self:RegisterForDrag("LeftButton");
+                self:Hide()
+            </OnLoad>
+            <OnDragStart>
+                TauntMaster_LeftButton_OnDragStart(self, button)
+            </OnDragStart>
+            <OnDragStop>
+                TauntMaster_LeftButton_OnDragStop(self, button)
+            </OnDragStop>
+        </Scripts>
+	</Frame>
+  <Frame name="RightButtonFrame" parent="UIParent" movable="true" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="330" y="271" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="12" y="27" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+        <Frames>
+	        <EditBox name="TauntMaster_EditBox2" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-66" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox2_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMEditBox2_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_ShiftEditBox2" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-105" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMShiftEditBox2_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMShiftEditBox2_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_CtrlEditBox2" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-144" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMCtrlEditBox2_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMCtrlEditBox2_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_AltEditBox2" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-183" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMAltEditBox2_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMAltEditBox2_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<Button name="BackButton2" inherits="UIPanelButtonTemplate" text="Back">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="80" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TauntMasterMouseButtons:Show()
+                        RightButtonFrame:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="CloseButton2" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="160" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        RightButtonFrame:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="DropDown2_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-75" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        DropDown2_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        DropDownFrame2:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="DropDownFrame2" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="DropDown2_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="DropDown2_Friend" parent="DropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown2_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.TARGET2 = DropDown2_Button:GetText()
+                                DropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="DropDown2_Enemy" parent="DropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown2_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.TARGET2 = DropDown2_Button:GetText()
+                                DropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="ShiftDropDown2_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-115" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        ShiftDropDown2_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        ShiftDropDownFrame2:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="ShiftDropDownFrame2" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="ShiftDropDown2_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="ShiftDropDown2_Friend" parent="ShiftDropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown2_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.SHIFTTARGET2 = ShiftDropDown2_Button:GetText()
+                                ShiftDropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="ShiftDropDown2_Enemy" parent="ShiftDropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown2_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.SHIFTTARGET2 = ShiftDropDown2_Button:GetText()
+                                ShiftDropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="CtrlDropDown2_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-155" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        CtrlDropDown2_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        CtrlDropDownFrame2:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="CtrlDropDownFrame2" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CtrlDropDown2_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="CtrlDropDown2_Friend" parent="CtrlDropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown2_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.CTRLTARGET2 = CtrlDropDown2_Button:GetText()
+                                CtrlDropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="CtrlDropDown2_Enemy" parent="CtrlDropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown2_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.CTRLTARGET2 = CtrlDropDown2_Button:GetText()
+                                CtrlDropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="AltDropDown2_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-195" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        AltDropDown2_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        AltDropDownFrame2:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="AltDropDownFrame2" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="AltDropDown2_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="AltDropDown2_Friend" parent="AltDropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown2_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.ALTTARGET2 = AltDropDown2_Button:GetText()
+                                AltDropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="AltDropDown2_Enemy" parent="AltDropDownFrame2" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame2" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown2_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.ALTTARGET2 = AltDropDown2_Button:GetText()
+                                AltDropDownFrame2:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+        </Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="RightButton" inherits="GameFontNormalLarge" text="Right Button">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="105" y="-16" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="SpellName2" inherits="GameFontNormalMed3" text="| Spell Name |">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="71" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Modifier2" inherits="GameFontNormalMed3" text="Modifier">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="4" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="None2" inherits="GameFontNormal" text="None">
+					<Size>
+						<AbsDimension x="53" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="31" y="-73" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Shift2" inherits="GameFontNormal" text="Shift">
+					<Size>
+						<AbsDimension x="50" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-110" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Ctrl2" inherits="GameFontNormal" text="Ctrl">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="44" y="-151" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Alt2" inherits="GameFontNormal" text="Alt">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="46" y="-189" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="CastAt2" inherits="GameFontNormalMed3" text="Cast spell at...">
+					<Size>
+						<AbsDimension x="120" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="184" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>     
+        <Scripts>
+            <OnLoad>
+                self:RegisterForDrag("LeftButton");
+                self:Hide()
+            </OnLoad>
+            <OnDragStart>
+                TauntMaster_RightButton_OnDragStart(self, button)
+            </OnDragStart>
+            <OnDragStop>
+                TauntMaster_RightButton_OnDragStop(self, button)
+            </OnDragStop>
+        </Scripts>
+	</Frame>
+  <Frame name="ButtonFrame3" parent="UIParent" movable="true" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="330" y="271" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="12" y="27" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+        <Frames>
+	        <EditBox name="TauntMaster_EditBox3" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-66" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox3_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMEditBox3_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_ShiftEditBox3" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-105" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMShiftEditBox3_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMShiftEditBox3_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_CtrlEditBox3" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-144" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMCtrlEditBox3_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMCtrlEditBox3_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_AltEditBox3" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-183" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMAltEditBox3_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMAltEditBox3_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<Button name="BackButton3" inherits="UIPanelButtonTemplate" text="Back">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="80" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TauntMasterMouseButtons:Show()
+                        ButtonFrame3:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="CloseButton3" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="160" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        ButtonFrame3:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="DropDown3_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-75" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        DropDown3_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        DropDownFrame3:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="DropDownFrame3" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="DropDown3_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="DropDown3_Friend" parent="DropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown3_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.TARGET3 = DropDown3_Button:GetText()
+                                DropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="DropDown3_Enemy" parent="DropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown3_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.TARGET3 = DropDown3_Button:GetText()
+                                DropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="ShiftDropDown3_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-115" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        ShiftDropDown3_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        ShiftDropDownFrame3:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="ShiftDropDownFrame3" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="ShiftDropDown3_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="ShiftDropDown3_Friend" parent="ShiftDropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown3_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.SHIFTTARGET3 = ShiftDropDown3_Button:GetText()
+                                ShiftDropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="ShiftDropDown3_Enemy" parent="ShiftDropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown3_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.SHIFTTARGET3 = ShiftDropDown3_Button:GetText()
+                                ShiftDropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="CtrlDropDown3_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-155" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        CtrlDropDown3_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        CtrlDropDownFrame3:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="CtrlDropDownFrame3" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CtrlDropDown3_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="CtrlDropDown3_Friend" parent="CtrlDropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown3_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.CTRLTARGET3 = CtrlDropDown3_Button:GetText()
+                                CtrlDropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="CtrlDropDown3_Enemy" parent="CtrlDropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown3_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.CTRLTARGET3 = CtrlDropDown3_Button:GetText()
+                                CtrlDropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="AltDropDown3_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-195" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        AltDropDown3_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        AltDropDownFrame3:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="AltDropDownFrame3" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="AltDropDown3_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="AltDropDown3_Friend" parent="AltDropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown3_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.ALTTARGET3 = AltDropDown3_Button:GetText()
+                                AltDropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="AltDropDown3_Enemy" parent="AltDropDownFrame3" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame3" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown3_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.ALTTARGET3 = AltDropDown3_Button:GetText()
+                                AltDropDownFrame3:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+        </Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="Button3" inherits="GameFontNormalLarge" text="Button 3">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="105" y="-16" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="SpellName3" inherits="GameFontNormalMed3" text="| Spell Name |">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="71" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Modifier3" inherits="GameFontNormalMed3" text="Modifier">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="4" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="None3" inherits="GameFontNormal" text="None">
+					<Size>
+						<AbsDimension x="53" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="31" y="-73" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Shift3" inherits="GameFontNormal" text="Shift">
+					<Size>
+						<AbsDimension x="50" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-110" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Ctrl3" inherits="GameFontNormal" text="Ctrl">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="44" y="-151" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Alt3" inherits="GameFontNormal" text="Alt">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="46" y="-189" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="CastAt3" inherits="GameFontNormalMed3" text="Cast spell at...">
+					<Size>
+						<AbsDimension x="120" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="184" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>     
+        <Scripts>
+            <OnLoad>
+                self:RegisterForDrag("LeftButton");
+                self:Hide()
+            </OnLoad>
+            <OnDragStart>
+                TauntMaster_Button3_OnDragStart(self, button)
+            </OnDragStart>
+            <OnDragStop>
+                TauntMaster_Button3_OnDragStop(self, button)
+            </OnDragStop>
+        </Scripts>
+	</Frame>
+  <Frame name="ButtonFrame4" parent="UIParent" movable="true" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="330" y="271" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="12" y="27" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+        <Frames>
+	        <EditBox name="TauntMaster_EditBox4" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-66" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox4_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMEditBox4_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_ShiftEditBox4" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-105" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMShiftEditBox4_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMShiftEditBox4_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_CtrlEditBox4" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-144" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMCtrlEditBox4_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMCtrlEditBox4_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_AltEditBox4" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-183" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMAltEditBox4_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMAltEditBox4_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<Button name="BackButton4" inherits="UIPanelButtonTemplate" text="Back">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="80" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TauntMasterMouseButtons:Show()
+                        ButtonFrame4:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="CloseButton4" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="160" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        ButtonFrame4:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="DropDown4_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-75" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        DropDown4_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        DropDownFrame4:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="DropDownFrame4" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="DropDown4_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="DropDown4_Friend" parent="DropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown4_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.TARGET4 = DropDown4_Button:GetText()
+                                DropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="DropDown4_Enemy" parent="DropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown4_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.TARGET4 = DropDown4_Button:GetText()
+                                DropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="ShiftDropDown4_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-115" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        ShiftDropDown4_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        ShiftDropDownFrame4:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="ShiftDropDownFrame4" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="ShiftDropDown4_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="ShiftDropDown4_Friend" parent="ShiftDropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown4_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.SHIFTTARGET4 = ShiftDropDown4_Button:GetText()
+                                ShiftDropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="ShiftDropDown4_Enemy" parent="ShiftDropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown4_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.SHIFTTARGET4 = ShiftDropDown4_Button:GetText()
+                                ShiftDropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="CtrlDropDown4_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-155" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        CtrlDropDown4_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        CtrlDropDownFrame4:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="CtrlDropDownFrame4" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CtrlDropDown4_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="CtrlDropDown4_Friend" parent="CtrlDropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown4_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.CTRLTARGET4 = CtrlDropDown4_Button:GetText()
+                                CtrlDropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="CtrlDropDown4_Enemy" parent="CtrlDropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown4_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.CTRLTARGET4 = CtrlDropDown4_Button:GetText()
+                                CtrlDropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="AltDropDown4_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-195" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        AltDropDown4_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        AltDropDownFrame4:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="AltDropDownFrame4" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="AltDropDown4_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="AltDropDown4_Friend" parent="AltDropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown4_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.ALTTARGET4 = AltDropDown4_Button:GetText()
+                                AltDropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="AltDropDown4_Enemy" parent="AltDropDownFrame4" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame4" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown4_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.ALTTARGET4 = AltDropDown4_Button:GetText()
+                                AltDropDownFrame4:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+        </Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="Button4" inherits="GameFontNormalLarge" text="Button 4">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="105" y="-16" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="SpellName4" inherits="GameFontNormalMed3" text="| Spell Name |">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="71" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Modifier4" inherits="GameFontNormalMed3" text="Modifier">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="4" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="None4" inherits="GameFontNormal" text="None">
+					<Size>
+						<AbsDimension x="53" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="31" y="-73" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Shift4" inherits="GameFontNormal" text="Shift">
+					<Size>
+						<AbsDimension x="50" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-110" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Ctrl4" inherits="GameFontNormal" text="Ctrl">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="44" y="-151" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Alt4" inherits="GameFontNormal" text="Alt">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="46" y="-189" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="CastAt4" inherits="GameFontNormalMed3" text="Cast spell at...">
+					<Size>
+						<AbsDimension x="120" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="184" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>     
+        <Scripts>
+            <OnLoad>
+                self:RegisterForDrag("LeftButton");
+                self:Hide()
+            </OnLoad>
+            <OnDragStart>
+                TauntMaster_Button4_OnDragStart(self, button)
+            </OnDragStart>
+            <OnDragStop>
+                TauntMaster_Button4_OnDragStop(self, button)
+            </OnDragStop>
+        </Scripts>
+	</Frame>
+  <Frame name="ButtonFrame5" parent="UIParent" movable="true" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="330" y="271" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="12" y="27" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+        <Frames>
+	        <EditBox name="TauntMaster_EditBox5" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-66" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMEditBox5_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMEditBox5_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_ShiftEditBox5" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-105" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMShiftEditBox5_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMShiftEditBox5_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_CtrlEditBox5" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-144" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMCtrlEditBox5_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMCtrlEditBox5_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TauntMaster_AltEditBox5" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="100" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="83" y="-183" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMAltEditBox5_OnLoad(self)
+                    </OnLoad>
+                    <OnCursorChanged>
+                        TMAltEditBox5_OnCursorChanged(self)
+                    </OnCursorChanged>
+                </Scripts>
+			</EditBox>
+			<Button name="BackButton5" inherits="UIPanelButtonTemplate" text="Back">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="80" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TauntMasterMouseButtons:Show()
+                        ButtonFrame5:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="CloseButton5" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="160" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        ButtonFrame5:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="DropDown5_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-75" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        DropDown5_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        DropDownFrame5:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="DropDownFrame5" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="DropDown5_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="DropDown5_Friend" parent="DropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown5_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.TARGET5 = DropDown5_Button:GetText()
+                                DropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="DropDown5_Enemy" parent="DropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="DropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                DropDown5_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.TARGET5 = DropDown5_Button:GetText()
+                                DropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="ShiftDropDown5_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-115" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        ShiftDropDown5_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        ShiftDropDownFrame5:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="ShiftDropDownFrame5" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="ShiftDropDown5_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="ShiftDropDown5_Friend" parent="ShiftDropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown5_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.SHIFTTARGET5 = ShiftDropDown5_Button:GetText()
+                                ShiftDropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="ShiftDropDown5_Enemy" parent="ShiftDropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="ShiftDropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                ShiftDropDown5_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.SHIFTTARGET5 = ShiftDropDown5_Button:GetText()
+                                ShiftDropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="CtrlDropDown5_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-155" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        CtrlDropDown5_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        CtrlDropDownFrame5:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="CtrlDropDownFrame5" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CtrlDropDown5_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="CtrlDropDown5_Friend" parent="CtrlDropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown5_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.CTRLTARGET5 = CtrlDropDown5_Button:GetText()
+                                CtrlDropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="CtrlDropDown5_Enemy" parent="CtrlDropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="CtrlDropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                CtrlDropDown5_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.CTRLTARGET5 = CtrlDropDown5_Button:GetText()
+                                CtrlDropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+            <Button name="AltDropDown5_Button" inherits="InterfaceOptionsListButtonTemplate" text="Select Target">
+                <Size>
+                    <AbsDimension x="150" y="10" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset x="189" y="-195" />
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        AltDropDown5_Button_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        AltDropDownFrame5:Show()
+                    </OnClick>
+                </Scripts>
+            </Button>
+            <Frame name="AltDropDownFrame5" frameStrata="DIALOG_FULLSCREEN">
+                <Size>
+                    <AbsDimension x="100" y="50" />
+                </Size>
+                <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+                    <BackgroundInsets>
+                        <AbsInset left="11" right="12" top="12" bottom="11" />
+                    </BackgroundInsets>
+                    <TileSize>
+                        <AbsValue val="32" />
+                    </TileSize>
+                    <EdgeSize>
+                        <AbsValue val="32" />
+                    </EdgeSize>
+                </Backdrop>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="AltDropDown5_Button" relativePoint="BOTTOMLEFT">
+                        <Offset x="0" y="10" />
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Button name="AltDropDown5_Friend" parent="AltDropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Friend">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-12" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown5_Button:SetText("[@mouseover]")
+                                TauntMasterDBChar.ALTTARGET5 = AltDropDown5_Button:GetText()
+                                AltDropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                    <Button name="AltDropDown5_Enemy" parent="AltDropDownFrame5" inherits="InterfaceOptionsListButtonTemplate" text="Enemy">
+                        <Size>
+                            <AbsDimension x="70" y="10" />
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativeTo="AltDropDownFrame5" relativePoint="TOPLEFT">
+                                <Offset x="12" y="-25" />
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnClick>
+                                AltDropDown5_Button:SetText("[@mouseovertarget]")
+                                TauntMasterDBChar.ALTTARGET5 = AltDropDown5_Button:GetText()
+                                AltDropDownFrame5:Hide()
+                            </OnClick>
+                        </Scripts>
+                    </Button>
+                </Frames>
+                <Scripts>
+                    <OnLoad>
+                        self:Hide()
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+        </Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="Button5" inherits="GameFontNormalLarge" text="Button 5">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="105" y="-16" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="SpellName5" inherits="GameFontNormalMed3" text="| Spell Name |">
+					<Size>
+						<AbsDimension x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="71" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Modifier5" inherits="GameFontNormalMed3" text="Modifier">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="4" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="None5" inherits="GameFontNormal" text="None">
+					<Size>
+						<AbsDimension x="53" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="31" y="-73" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Shift5" inherits="GameFontNormal" text="Shift">
+					<Size>
+						<AbsDimension x="50" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="36" y="-110" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Ctrl5" inherits="GameFontNormal" text="Ctrl">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="44" y="-151" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Alt5" inherits="GameFontNormal" text="Alt">
+					<Size>
+						<AbsDimension x="40" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="46" y="-189" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="CastAt5" inherits="GameFontNormalMed3" text="Cast spell at...">
+					<Size>
+						<AbsDimension x="120" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="184" y="-40" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>     
+        <Scripts>
+            <OnLoad>
+                self:RegisterForDrag("LeftButton");
+                self:Hide()
+            </OnLoad>
+            <OnDragStart>
+                TauntMaster_Button5_OnDragStart(self, button)
+            </OnDragStart>
+            <OnDragStop>
+                TauntMaster_Button5_OnDragStop(self, button)
+            </OnDragStop>
+        </Scripts>
+	</Frame>
+  <Frame name="TMOptionsMenu" parent="UIParent" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="150" y="180" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="-17" y="49" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>	
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>	
+		<Frames>
+			<Button name="TMSpellOptions" inherits="UIPanelButtonTemplate" text="Spell Bindings">
+				<Size>
+					<AbsDimension x="113" y="34" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="18" y="-15" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TauntMasterMouseButtons:Show()
+                        TMOptionsMenu:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+			<Button name="TMDisplayOptions" inherits="UIPanelButtonTemplate" text="Display Options">
+				<Size>
+					<AbsDimension x="113" y="34" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="18" y="-55" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TMConfig:Show()
+                        TMOptionsMenu:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+            <Button name="TMTauntWarnOptions" inherits="UIPanelButtonTemplate" text="Raid Warnings">
+				<Size>
+					<AbsDimension x="113" y="34" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="18" y="-95" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TMTauntWarnFrame:Show()
+                        TMOptionsMenu:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+			<Button name="TMDisplayOptionsClose" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="90" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="30" y="-137" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TMOptionsMenu:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+		</Frames>
+        <Scripts>
+            <OnLoad>
+                self:Hide()
+            </OnLoad>
+        </Scripts>
+	</Frame>
+  <Frame name="TMTauntWarnFrame" parent="UIParent" toplevel="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="533" y="477" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="-25" y="20" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture file="Interface\DialogFrame\UI-DialogBox-Background">
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="TMWspCheckButton" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="120" y="-81" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMWspCheckButton_OnLoad(self)
+                    </OnLoad>
+                    <PostClick>
+                        TMWspCheckButton_OnClick(self)
+                    </PostClick>
+                </Scripts>
+			</CheckButton>
+			<CheckButton name="TMSayCheckButton" inherits="UICheckButtonTemplate" text="CheckButton2">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="210" y="-81" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMSayCheckButton_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        TMSayCheckButton_OnClick(self)
+                    </OnClick>
+                </Scripts>
+			</CheckButton>
+			<CheckButton name="TMRaidCheckButton" inherits="UICheckButtonTemplate" text="CheckButton3">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="293" y="-81" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMRaidCheckButton_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        TMRaidCheckButton_OnClick(self)
+                    </OnClick>
+                </Scripts>
+			</CheckButton>
+			<CheckButton name="TMRaidWarnCheckButton" inherits="UICheckButtonTemplate" text="CheckButton4">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="381" y="-81" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMRaidWarnCheckButton_OnLoad(self)
+                    </OnLoad>
+                    <OnClick>
+                        TMRaidWarnCheckButton_OnClick(self)
+                    </OnClick>
+                </Scripts>
+			</CheckButton>
+			<EditBox name="TMHorsemenEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="202" y="-146" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMHorsemenEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMHorsemenEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMGluthEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="202" y="-184" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMGluthEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMGluthEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMToravonEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="31" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="202" y="-221" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMToravonEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMToravonEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMRazorscaleEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="31" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="202" y="-260" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMRazorscaleEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMRazorscaleEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMThorimEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="31" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="202" y="-300" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMThorimEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMThorimEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMAlgalonEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="31" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="202" y="-339" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMAlgalonEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMAlgalonEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMGormokEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="202" y="-378" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMGormokEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMGormokEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMDeathwhisperEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="457" y="-144" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMDeathwhisperEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMDeathwhisperEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMDeathbringerEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="457" y="-182" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMDeathbringerEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMDeathbringerEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMDogsEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="457" y="-219" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMDogsEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMDogsEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMFestergutEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="457" y="-258" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMFestergutEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMFestergutEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMPutricideEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="31" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="457" y="-297" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMPutricideEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMPutricideEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMSindragosaEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="31" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="457" y="-336" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMSindragosaEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMSindragosaEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<EditBox name="TMLichKingEditBox" inherits="InputBoxTemplate" letters="2" numeric="true">
+				<Size>
+					<AbsDimension x="31" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="457" y="-378" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnLoad>
+                        TMLichKingEditBox_OnLoad(self)
+                    </OnLoad>
+                    <OnTextChanged>
+                        TMLichKingEditBox_OnTextChanged(self)
+                    </OnTextChanged>
+                </Scripts>
+			</EditBox>
+			<Button name="TMWarnCloseButton" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="103" y="29" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="224" y="-430" />
+					</Anchor>
+				</Anchors>
+                <Scripts>
+                    <OnClick>
+                        TMTauntWarnFrame:Hide()
+                    </OnClick>
+                </Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="TMNaxxString" inherits="GameFontNormal" text="Naxxramas">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="30" y="-153" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TM4HorsemenString" inherits="GameFontNormal" text="Four Horsemen">
+					<Size>
+						<AbsDimension x="80" y="27" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="116" y="-148" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMGluthString" inherits="GameFontNormal" text="Gluth">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="116" y="-190" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMVoAString" inherits="GameFontNormal" text="Vault of Archavon">
+					<Size>
+						<AbsDimension x="80" y="32" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="30" y="-223" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMToravonString" inherits="GameFontNormal" text="Toravon">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="116" y="-229" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMUlduarString" inherits="GameFontNormal" text="Ulduar">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="30" y="-268" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMThorimString" inherits="GameFontNormal" text="Thorim">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="116" y="-305" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMAlgalonString" inherits="GameFontNormal" text="Algalon">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="116" y="-345" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMGormokString" inherits="GameFontNormal" text="Gormok">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="116" y="-383" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMLadyString" inherits="GameFontNormal" text="Lady Deathwhisper">
+					<Size>
+						<AbsDimension x="92" y="25" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="355" y="-146" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMDeathbringerString" inherits="GameFontNormal" text="Deathbringer Saurfang">
+					<Size>
+						<AbsDimension x="120" y="32" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="336" y="-180" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMDogsString" inherits="GameFontNormal" text="Stinky/Precious">
+					<Size>
+						<AbsDimension x="120" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="326" y="-222" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMFestergutString" inherits="GameFontNormal" text="Festergut">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="366" y="-263" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMProfPutString" inherits="GameFontNormal" text="Professor Putricide">
+					<Size>
+						<AbsDimension x="80" y="28" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="367" y="-300" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMSindragosaString" inherits="GameFontNormal" text="Sindragosa">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="367" y="-340" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMLichKingString" inherits="GameFontNormal" text="The Lich King">
+					<Size>
+						<AbsDimension x="80" y="27" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="367" y="-383" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMTOCString" inherits="GameFontNormal" text="Trial of the Crusader">
+					<Size>
+						<AbsDimension x="80" y="27" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="30" y="-381" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMICCString" inherits="GameFontNormal" text="Icecrown Citadel">
+					<Size>
+						<AbsDimension x="80" y="31" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="287" y="-143" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMRazorscaleString" inherits="GameFontNormal" text="Razorscale">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="116" y="-268" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMStacksString1" inherits="GameFontNormal" text="Stacks">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="175" y="-129" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMStacksString2" inherits="GameFontNormal" text="Stacks">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="429" y="-127" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMWhisperString" inherits="GameFontNormal" text="Whisper">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="97" y="-65" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMSayString" inherits="GameFontNormal" text="Say">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="183" y="-65" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMRaidString" inherits="GameFontNormal" text="Raid">
+					<Size>
+						<AbsDimension x="80" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="270" y="-65" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMRaidWarnString" inherits="GameFontNormal" text="Raid Warning">
+					<Size>
+						<AbsDimension x="107" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="341" y="-65" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="TMTauntWarnString" inherits="BossEmoteNormalHuge" text="Taunt Warnings">
+					<Size>
+						<AbsDimension x="204" y="35" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="163" y="-16" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				TMTauntWarnFrame_OnLoad(self)
+                self:Hide()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+</Ui>
