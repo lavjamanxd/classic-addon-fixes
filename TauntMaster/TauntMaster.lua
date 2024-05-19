@@ -39,7 +39,7 @@ local defaults = {
     TMSindragosa = 4,
     TMLichKing = 1,
     TMWspWarn = nil,
-    TMSayWarn = nil, 
+    TMSayWarn = nil,
     TMRaidWarn = nil,
     TMRaidWarnWarn = nil,
     TARGET1 = "Click to Select",
@@ -120,7 +120,7 @@ local paladindefaults = {
     TMLichKing = 1,
 	TMDogs = 6,
     TMWspWarn = nil,
-    TMSayWarn = nil, 
+    TMSayWarn = nil,
     TMRaidWarn = nil,
     TMRaidWarnWarn = nil,
     SPELL1 = GetSpellInfo(62124),--hand of reckoning
@@ -201,7 +201,7 @@ local warriordefaults = {
     TMSindragosa = 4,
     TMLichKing = 1,
     TMWspWarn = nil,
-    TMSayWarn = nil, 
+    TMSayWarn = nil,
     TMRaidWarn = nil,
     TMRaidWarnWarn = nil,
     SPELL1 = GetSpellInfo(355), --taunt
@@ -286,7 +286,7 @@ local deathknightdefaults = {
     TMSindragosa = 4,
     TMLichKing = 1,
     TMWspWarn = nil,
-    TMSayWarn = nil, 
+    TMSayWarn = nil,
     TMRaidWarn = nil,
     TMRaidWarnWarn = nil,
     TARGET1 = "[@mouseovertarget]",
@@ -363,7 +363,7 @@ local druiddefaults = {
     TMSindragosa = 4,
     TMLichKing = 1,
     TMWspWarn = nil,
-    TMSayWarn = nil, 
+    TMSayWarn = nil,
     TMRaidWarn = nil,
     TMRaidWarnWarn = nil,
     SPELL1 = GetSpellInfo(6795),--growl
@@ -408,26 +408,26 @@ local druiddefaults = {
     ALTTARGET5 = "Click to Select",
 }
 
-function TauntMaster_Update() 
-	
+function TauntMaster_Update()
+
 	if TauntMasterDBChar.hideTM == nil then
 
 		local _, zone = IsInInstance()
 		if (zone == "arena" or zone == "pvp") and TauntMasterDB.HideBG then
 			TauntMaster_Header:Hide()
-			--TauntMasterDBChar.hideTM = true	
+			--TauntMasterDBChar.hideTM = true
 		else
 			TauntMaster_Header:Hide()
 			TauntMaster_Header:Show()
 			--TauntMasterDBChar.hideTM = nil
 		end
 
-	end		
+	end
 
 end
 
 function TauntMaster_Button_OnLoad(self)
-    
+
    TMbuttonNames = self:GetName()
    self:RegisterForDrag("LeftButton")
    self:RegisterForClicks("AnyUp")
@@ -461,7 +461,7 @@ function TauntMaster_Button_OnLoad(self)
    self:RegisterEvent("PLAYER_REGEN_DISABLED")
    self:RegisterEvent("PLAYER_REGEN_ENABLED")
    self:RegisterEvent("UNIT_TARGET")
-   
+
 end
 
 function TauntMaster_Button_OnEvent(self, event, ...)
@@ -607,14 +607,14 @@ function TauntMaster_Button_OnEvent(self, event, ...)
     --   DEFAULT_CHAT_FRAME:AddMessage("Please post your results in the forum at www.tauntmaster.com")
     --end
 
-    if event == 'RAID_ROSTER_UPDATE' or event == 'GROUP_ROSTER_UPDATE' then	
-		TauntMaster_Update()	
+    if event == 'RAID_ROSTER_UPDATE' or event == 'GROUP_ROSTER_UPDATE' then
+		TauntMaster_Update()
 	end
-	
+
 	if event == 'ZONE_CHANGED_NEW_AREA' then
 		TauntMaster_Update()
 	end
-    
+
     local unit = self:GetAttribute("unit")
     if (event=="PLAYER_REGEN_DISABLED" or event=="PLAYER_REGEN_ENABLED") then
 
@@ -677,7 +677,7 @@ function TauntMaster_Button_OnEvent(self, event, ...)
 		      end
 		    end
         end
-		
+
        --[[ local playerClass = select(2, UnitClass("player"))
 		if playerClass == "WARRIOR" then
 			--if CheckInteractDistance(unit, 1) then
@@ -728,23 +728,23 @@ function TauntMaster_Button_OnEvent(self, event, ...)
 				end]]
 
 end
-    
 
-    
+
+
 
 
 if event=="COMBAT_LOG_EVENT_UNFILTERED" then
     if self == TauntMaster_HeaderUnitButton1 then
-	
-	
+
+
         local spellId = select(9,...)
         local type = select(2,...)
         local destName = select(7,...)
         local debuffAmount = select(13,...)
         local destGUID = select(6,...)
         local srcName = select(4,...)
-        
-        	 
+
+
         if TauntMasterDB.showTaunts2 == false and TauntMasterDB.showTaunts ~= false then --show taunts when on cooldown
           local class = select(2, UnitClass('player'))
 
@@ -898,7 +898,7 @@ if event=="COMBAT_LOG_EVENT_UNFILTERED" then
                 TMRaidWarnDose(destName, debuffAmount, destGUID)
           elseif (spellId == 62130 and debuffAmount >= (TMThorimEditBox:GetNumber())) then
                 TMRaidWarnDose(destName, debuffAmount, destGUID)
-          end   
+          end
         end
         if type=="SPELL_AURA_APPLIED" then
           if (spellId == 72447) then
@@ -1114,14 +1114,14 @@ if event=="COMBAT_LOG_EVENT_UNFILTERED" then
                 TMRaidWarnApplied(destName, destGUID)
             end
 
-			
-			
+
+
           end
         end
       end
     end
-    
-    
+
+
 
 
 end
@@ -1129,7 +1129,7 @@ end
 function TauntMaster_Button_OnShow(self)
   local unit = self:GetAttribute("unit")
   if unit then
-    local class, key = select(2, UnitClass(unit)) or "WARRIOR"  
+    local class, key = select(2, UnitClass(unit)) or "WARRIOR"
     local color = RAID_CLASS_COLORS[class]
     self.name:SetText(UnitName(unit))
     self.name:SetTextColor(color.r, color.g, color.b)
@@ -1379,8 +1379,8 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
             self.croaricon:Hide()
         end
     end
-    
-    
+
+
     if TauntMasterDB.showTaunts2 == false and TauntMasterDB.showTaunts == false then
             self.taunticon:Hide()
             self.cshouticon:Hide()
@@ -1451,14 +1451,18 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
 
     local unit = self:GetAttribute("unit")
     if unit then
-      local r, g, b = GetThreatStatusColor(UnitThreatSituation(unit))
+      local status = UnitThreatSituation(unit)
+      if status == nil then
+        status = 0
+      end
+      local r, g, b = GetThreatStatusColor(status)
       self.healthbar:SetStatusBarColor(r, g, b)
     end
     if self:GetAttribute("unit") == unit then
         self.healthbar:SetValue(UnitHealth(unit))
         self.healthbar:SetMinMaxValues(0, UnitHealthMax(unit))
     end
-    
+
     if TauntMasterDB.showTankTarget == false then
         if tankGuid1Name ~= nil then
             if UnitIsUnit(unit.."target", tankGuid1Name.."-target") then
@@ -1471,7 +1475,7 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
             else
                 self.tanktargeticon:Hide()
             end
-            
+
         end
         if tankGuid2Name ~= nil then
             if UnitIsUnit(unit.."target", tankGuid2Name.."-target") then
@@ -1513,13 +1517,13 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
             self.tanktargeticon:Hide()
         else
             self.tanktargeticon:Hide()
-      end    
-          
+      end
+
  if TauntMasterDB.showTank == false then
     local frostPresence = GetSpellInfo(48263)
     local righteousFury = GetSpellInfo(25781)
     local direBear = GetSpellInfo(9634)
-    local bearForm = GetSpellInfo(5487)    
+    local bearForm = GetSpellInfo(5487)
             if UnitInParty(unit) or UnitInRaid(unit) or UnitIsPlayer(unit) then
                 local unitClass = select(2, UnitClass(unit))
                 if unitClass == "WARRIOR" then
@@ -1555,7 +1559,7 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
                                 end
                             end
 						end
-					end						
+					end
                 elseif unitClass == "DEATHKNIGHT" then
                     if AuraUtil.FindAuraByName(frostPresence, unit) then --UnitBuff(unit, frostPresence)
                         self.tankicon:Show()
@@ -1775,7 +1779,7 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
                         if TauntMaster_EditBox_Alpha2:GetText() ~= "" then
                             self.healthbar:SetAlpha((TauntMaster_EditBox_Alpha2:GetText() / 100))
                         end
-                    end  
+                    end
                 else
                     if TauntMaster_EditBox_Alpha1:GetText() ~= "" then
                         self.healthbar:SetAlpha((TauntMaster_EditBox_Alpha1:GetText() / 100))
@@ -1935,7 +1939,7 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
                     end
                 end
         end
-        
+
     else
         local class = select(2, UnitClass('player'))
         if class == "WARLOCK" then
@@ -2183,9 +2187,9 @@ function TauntMaster_Button_OnUpdate(self, elapsed)
             end
             total = 0
         end
- 
 
-          
+
+
     end
 end
 
@@ -2357,20 +2361,20 @@ function MiniMapButton_OnLoad()
 			MiniMap_MinimapButton:SetPoint("TOPLEFT","Minimap","TOPLEFT",52-(80*cos(TauntMasterDB.MinimapPos)),(80*sin(TauntMasterDB.MinimapPos))-52)
 		end
    end)
-   
+
    MiniMap_MinimapButton.Tip = CreateFrame("GameTooltip", "MiniMapTooltip", nil, "GameTooltipTemplate")
 
-   MiniMap_MinimapButton:SetScript("OnEnter",function(self)   
+   MiniMap_MinimapButton:SetScript("OnEnter",function(self)
 		MiniMap_MinimapButton.Tip:SetOwner(self, "ANCHOR_BOTTOMLEFT")
 		MiniMap_MinimapButton.Tip:AddLine("Taunt master Wrath")
 		MiniMap_MinimapButton.Tip:AddLine("Left click: Open Option")
 		MiniMap_MinimapButton.Tip:AddLine("Right click: Update frame")
-		MiniMap_MinimapButton.Tip:Show()		
+		MiniMap_MinimapButton.Tip:Show()
    end)
    MiniMap_MinimapButton:SetScript("OnLeave",function(self)
-		MiniMap_MinimapButton.Tip:Hide()		
+		MiniMap_MinimapButton.Tip:Hide()
    end)
-   
+
 end
 
 function MiniMap_MinimapButton_Reposition()
@@ -2378,14 +2382,14 @@ function MiniMap_MinimapButton_Reposition()
 end
 
 function MiniMapButton_OnClick(self, button, down)
-	
+
 	if button == "LeftButton" then
 		TMOptionsMenu:Show()
 	end
 	if button == "RightButton" then
 		TauntMaster_Update()
 	end
-	
+
 end
 
 function MiniMap_MinimapButton_DraggingFrame_OnUpdate()
@@ -2393,10 +2397,10 @@ function MiniMap_MinimapButton_DraggingFrame_OnUpdate()
 	local xpos,ypos = GetCursorPosition()
 	local xmin,ymin = Minimap:GetLeft(), Minimap:GetBottom()
 
-	xpos = xmin-xpos/UIParent:GetScale()+70 
+	xpos = xmin-xpos/UIParent:GetScale()+70
 	ypos = ypos/UIParent:GetScale()-ymin-70
 
-	TauntMasterDB.MinimapPos = math.deg(math.atan2(ypos,xpos)) 
+	TauntMasterDB.MinimapPos = math.deg(math.atan2(ypos,xpos))
 	MiniMap_MinimapButton_Reposition()
 end
 
@@ -2444,7 +2448,7 @@ function TMEditBox_OnLoad(self)
                     if not TauntMasterDBChar[option] then TauntMasterDBChar[option] = value end
                 end
        end
-      self:SetText(TauntMasterDBChar.SPELL1)        
+      self:SetText(TauntMasterDBChar.SPELL1)
 	  end
     end)
 end
@@ -2461,7 +2465,7 @@ function TMShiftEditBox_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTSPELL1)        
+      self:SetText(TauntMasterDBChar.SHIFTSPELL1)
 	  end
     end)
 end
@@ -2478,7 +2482,7 @@ function TMCtrlEditBox_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLSPELL1)        
+      self:SetText(TauntMasterDBChar.CTRLSPELL1)
 	  end
     end)
 end
@@ -2495,7 +2499,7 @@ function TMAltEditBox_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTSPELL1)        
+      self:SetText(TauntMasterDBChar.ALTSPELL1)
 	  end
     end)
 end
@@ -2511,8 +2515,8 @@ function DropDown_Button_OnLoad(self)
         TauntMasterDB = TauntMasterDB or {}
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
-        end      
-        self:SetText(TauntMasterDBChar.TARGET1)        
+        end
+        self:SetText(TauntMasterDBChar.TARGET1)
 	  end
     end)
 end
@@ -2525,7 +2529,7 @@ function ShiftDropDown_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTTARGET1)    
+      self:SetText(TauntMasterDBChar.SHIFTTARGET1)
 	  end
     end)
 end
@@ -2538,7 +2542,7 @@ function CtrlDropDown_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLTARGET1)        
+      self:SetText(TauntMasterDBChar.CTRLTARGET1)
 	  end
     end)
 end
@@ -2551,7 +2555,7 @@ function AltDropDown_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTTARGET1)        
+      self:SetText(TauntMasterDBChar.ALTTARGET1)
 	  end
     end)
 end
@@ -2592,7 +2596,7 @@ function TMShiftEditBox2_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTSPELL2)        
+      self:SetText(TauntMasterDBChar.SHIFTSPELL2)
 	  end
     end)
 end
@@ -2609,7 +2613,7 @@ function TMCtrlEditBox2_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLSPELL2)        
+      self:SetText(TauntMasterDBChar.CTRLSPELL2)
 	  end
     end)
 end
@@ -2626,7 +2630,7 @@ function TMAltEditBox2_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTSPELL2)        
+      self:SetText(TauntMasterDBChar.ALTSPELL2)
 	  end
     end)
 end
@@ -2643,7 +2647,7 @@ function DropDown2_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.TARGET2)        
+      self:SetText(TauntMasterDBChar.TARGET2)
 	  end
     end)
 end
@@ -2656,7 +2660,7 @@ function ShiftDropDown2_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTTARGET2)    
+      self:SetText(TauntMasterDBChar.SHIFTTARGET2)
 	  end
     end)
 end
@@ -2669,7 +2673,7 @@ function CtrlDropDown2_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLTARGET2)        
+      self:SetText(TauntMasterDBChar.CTRLTARGET2)
 	  end
     end)
 end
@@ -2682,7 +2686,7 @@ function AltDropDown2_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTTARGET2)        
+      self:SetText(TauntMasterDBChar.ALTTARGET2)
 	  end
     end)
 end
@@ -2706,7 +2710,7 @@ function TMEditBox3_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SPELL3)        
+      self:SetText(TauntMasterDBChar.SPELL3)
 	  end
     end)
 end
@@ -2723,7 +2727,7 @@ function TMShiftEditBox3_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTSPELL3)        
+      self:SetText(TauntMasterDBChar.SHIFTSPELL3)
 	  end
     end)
 end
@@ -2740,7 +2744,7 @@ function TMCtrlEditBox3_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLSPELL3)        
+      self:SetText(TauntMasterDBChar.CTRLSPELL3)
 	  end
     end)
 end
@@ -2757,7 +2761,7 @@ function TMAltEditBox3_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTSPELL3)        
+      self:SetText(TauntMasterDBChar.ALTSPELL3)
 	  end
     end)
 end
@@ -2774,7 +2778,7 @@ function DropDown3_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.TARGET3)        
+      self:SetText(TauntMasterDBChar.TARGET3)
 	  end
     end)
 end
@@ -2787,7 +2791,7 @@ function ShiftDropDown3_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTTARGET3)    
+      self:SetText(TauntMasterDBChar.SHIFTTARGET3)
 	  end
     end)
 end
@@ -2800,7 +2804,7 @@ function CtrlDropDown3_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLTARGET3)        
+      self:SetText(TauntMasterDBChar.CTRLTARGET3)
 	  end
     end)
 end
@@ -2813,7 +2817,7 @@ function AltDropDown3_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTTARGET3)        
+      self:SetText(TauntMasterDBChar.ALTTARGET3)
 	  end
     end)
 end
@@ -2837,7 +2841,7 @@ function TMEditBox4_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SPELL4)        
+      self:SetText(TauntMasterDBChar.SPELL4)
 	  end
     end)
 end
@@ -2854,7 +2858,7 @@ function TMShiftEditBox4_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTSPELL4)        
+      self:SetText(TauntMasterDBChar.SHIFTSPELL4)
 	  end
     end)
 end
@@ -2871,7 +2875,7 @@ function TMCtrlEditBox4_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLSPELL4)        
+      self:SetText(TauntMasterDBChar.CTRLSPELL4)
 	  end
     end)
 end
@@ -2888,7 +2892,7 @@ function TMAltEditBox4_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTSPELL4)        
+      self:SetText(TauntMasterDBChar.ALTSPELL4)
 	  end
     end)
 end
@@ -2905,7 +2909,7 @@ function DropDown4_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.TARGET4)        
+      self:SetText(TauntMasterDBChar.TARGET4)
 	  end
     end)
 end
@@ -2918,7 +2922,7 @@ function ShiftDropDown4_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTTARGET4)    
+      self:SetText(TauntMasterDBChar.SHIFTTARGET4)
 	  end
     end)
 end
@@ -2931,7 +2935,7 @@ function CtrlDropDown4_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLTARGET4)        
+      self:SetText(TauntMasterDBChar.CTRLTARGET4)
 	  end
     end)
 end
@@ -2944,7 +2948,7 @@ function AltDropDown4_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTTARGET4)        
+      self:SetText(TauntMasterDBChar.ALTTARGET4)
 	  end
     end)
 end
@@ -2968,7 +2972,7 @@ function TMEditBox5_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SPELL5)        
+      self:SetText(TauntMasterDBChar.SPELL5)
 	  end
     end)
 end
@@ -2985,7 +2989,7 @@ function TMShiftEditBox5_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTSPELL5)        
+      self:SetText(TauntMasterDBChar.SHIFTSPELL5)
 	  end
     end)
 end
@@ -3002,7 +3006,7 @@ function TMCtrlEditBox5_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLSPELL5)        
+      self:SetText(TauntMasterDBChar.CTRLSPELL5)
 	  end
     end)
 end
@@ -3019,7 +3023,7 @@ function TMAltEditBox5_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTSPELL5)        
+      self:SetText(TauntMasterDBChar.ALTSPELL5)
 	  end
     end)
 end
@@ -3036,7 +3040,7 @@ function DropDown5_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.TARGET5)        
+      self:SetText(TauntMasterDBChar.TARGET5)
 	  end
     end)
 end
@@ -3049,7 +3053,7 @@ function ShiftDropDown5_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.SHIFTTARGET5)    
+      self:SetText(TauntMasterDBChar.SHIFTTARGET5)
 	  end
     end)
 end
@@ -3062,7 +3066,7 @@ function CtrlDropDown5_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.CTRLTARGET5)        
+      self:SetText(TauntMasterDBChar.CTRLTARGET5)
 	  end
     end)
 end
@@ -3075,7 +3079,7 @@ function AltDropDown5_Button_OnLoad(self)
         for option, value in pairs(defaults) do
           if not TauntMasterDB[option] then TauntMasterDB[option] = value end
         end
-      self:SetText(TauntMasterDBChar.ALTTARGET5)        
+      self:SetText(TauntMasterDBChar.ALTTARGET5)
 	  end
     end)
 end
@@ -3124,7 +3128,7 @@ function TauntMaster_Button_ShowSolo_PostClick(self)
     --    TauntMaster_Header:SetAttribute("showSolo", true)
     --end
 	TauntMaster_Header:SetAttribute("showSolo", not TauntMasterDB.soloCheck)
-	
+
 end
 
 function TauntMaster_HideBG_OnLoad(self)
@@ -3236,7 +3240,7 @@ function TMEditBox_OOM_OnLoad(self)
                     if not TauntMasterDB[option] then TauntMasterDB[option] = value end
                 end
        end
-      self:SetText(TauntMasterDB.OOMlevel)        
+      self:SetText(TauntMasterDB.OOMlevel)
 	  end
     end)
 end
@@ -3276,7 +3280,7 @@ function TMEditBox_Alpha1_OnLoad(self)
                     if not TauntMasterDB[option] then TauntMasterDB[option] = value end
                 end
        end
-      self:SetText(TauntMasterDB.Alpha1)        
+      self:SetText(TauntMasterDB.Alpha1)
 	  end
     end)
 end
@@ -3316,7 +3320,7 @@ function TMEditBox_Alpha2_OnLoad(self)
                     if not TauntMasterDB[option] then TauntMasterDB[option] = value end
                 end
        end
-      self:SetText(TauntMasterDB.Alpha2)        
+      self:SetText(TauntMasterDB.Alpha2)
 	  end
     end)
 end
@@ -3356,7 +3360,7 @@ function TMEditBox_Alpha3_OnLoad(self)
                     if not TauntMasterDB[option] then TauntMasterDB[option] = value end
                 end
        end
-      self:SetText(TauntMasterDB.Alpha3)        
+      self:SetText(TauntMasterDB.Alpha3)
 	  end
     end)
 end
@@ -3396,7 +3400,7 @@ function TMEditBox_Alpha4_OnLoad(self)
                     if not TauntMasterDB[option] then TauntMasterDB[option] = value end
                 end
        end
-      self:SetText(TauntMasterDB.Alpha4)        
+      self:SetText(TauntMasterDB.Alpha4)
 	  end
     end)
 end
@@ -3406,7 +3410,7 @@ function TMEditBox_Alpha4_OnTextChanged(self)
 end
 
 
- 	
+
 
 function TMTauntWarnFrame_OnLoad(self)
     self:RegisterEvent('ADDON_LOADED')
@@ -3419,9 +3423,9 @@ function TMTauntWarnFrame_OnLoad(self)
 	  end
     end)
 end
-	
-	
-	
+
+
+
 function TMWspCheckButton_OnLoad(self)
     self:RegisterEvent('ADDON_LOADED')
     self:SetScript('OnEvent', function(self, event, ...)
@@ -3436,7 +3440,7 @@ function TMWspCheckButton_OnLoad(self)
         --    self:SetChecked(1)
         -- end
 		self:SetChecked(TauntMasterDB.TMWspWarn)
-		
+
 
 	  end
     end)
@@ -3449,7 +3453,7 @@ function TMWspCheckButton_OnClick(self)
     --elseif self:GetChecked() == 1 then
     --    TauntMasterDB.TMWspWarn = 1
     --end
-	
+
 	TauntMasterDB.TMWspWarn = self:GetChecked()
 end
 
@@ -3793,7 +3797,7 @@ if TauntMasterDB.TMRaidWarn == true then
                       if tankGuid4 ~= nil then
                            SendChatMessage(destName.." has "..debuffAmount.." stacks!  TAUNT NOW!","WHISPER", nil, tankGuid4Name);
                       end
-                 
+
                  elseif tankGuid2 == destGUID then
                       if tankGuid1 ~= nil then
                            SendChatMessage(destName.." has "..debuffAmount.." stacks!  TAUNT NOW!","WHISPER", nil, tankGuid1Name);
@@ -3804,7 +3808,7 @@ if TauntMasterDB.TMRaidWarn == true then
                       if tankGuid4 ~= nil then
                            SendChatMessage(destName.." has "..debuffAmount.." stacks!  TAUNT NOW!","WHISPER", nil, tankGuid4Name);
                       end
-                 
+
                  elseif tankGuid3 == destGUID then
                       if tankGuid1 ~= nil then
                            SendChatMessage(destName.." has "..debuffAmount.." stacks!  TAUNT NOW!","WHISPER", nil, tankGuid1Name);
@@ -3815,7 +3819,7 @@ if TauntMasterDB.TMRaidWarn == true then
                       if tankGuid4 ~= nil then
                            SendChatMessage(destName.." has "..debuffAmount.." stacks!  TAUNT NOW!","WHISPER", nil, tankGuid4Name);
                       end
-                 
+
                  elseif tankGuid4 == destGUID then
                       if tankGuid1 ~= nil then
                            SendChatMessage(destName.." has "..debuffAmount.." stacks!  TAUNT NOW!","WHISPER", nil, tankGuid1Name);
@@ -3843,14 +3847,14 @@ function TMRaidWarnApplied(destName, destGUID)
                   SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","SAY");
            end
            if TauntMasterDB.TMWspWarn == true then
-		   
 
-				 
-				 
+
+
+
                  if tankGuid1 == destGUID then
 
-				 
-				 
+
+
                       if tankGuid2 ~= nil then
                            SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","WHISPER", nil, tankGuid2Name);
                       end
@@ -3860,7 +3864,7 @@ function TMRaidWarnApplied(destName, destGUID)
                       if tankGuid4 ~= nil then
                            SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","WHISPER", nil, tankGuid4Name);
                       end
-                 
+
                  elseif tankGuid2 == destGUID then
                       if tankGuid1 ~= nil then
                            SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","WHISPER", nil, tankGuid1Name);
@@ -3871,7 +3875,7 @@ function TMRaidWarnApplied(destName, destGUID)
                       if tankGuid4 ~= nil then
                            SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","WHISPER", nil, tankGuid4Name);
                       end
-                 
+
                  elseif tankGuid3 == destGUID then
                       if tankGuid1 ~= nil then
                            SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","WHISPER", nil, tankGuid1Name);
@@ -3882,7 +3886,7 @@ function TMRaidWarnApplied(destName, destGUID)
                       if tankGuid4 ~= nil then
                            SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","WHISPER", nil, tankGuid4Name);
                       end
-                 
+
                  elseif tankGuid4 == destGUID then
                       if tankGuid1 ~= nil then
                            SendChatMessage(destName.." has 1 stack!  TAUNT NOW!","WHISPER", nil, tankGuid1Name);

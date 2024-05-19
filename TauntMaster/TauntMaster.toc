@@ -1,4 +1,4 @@
-## Interface: 30401
+## Interface: 40400
 ## Title: TauntMaster
 ## Author: Prodigy&Raidark
 ## SavedVariablesPerCharacter: TauntMasterDBChar
